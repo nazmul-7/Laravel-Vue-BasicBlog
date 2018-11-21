@@ -57,7 +57,7 @@
                 <a href="{{ route('admin.edit', ['id' => $post->id]) }}">Edit</a>
                 <a href="{{ route('admin.delete', ['id' => $post->id]) }}"  style="color: red;">Delete</a>
                 @endif -->
-                 <router-link  :to="'epost'">Edit</router-link>
+                 <template><router-link   :to="{ name: 'EditPost', params: { id: post['id'] }}">Edit</router-link></template>
                  <a v-on:click='getAdminDelete(post["id"])'  style="color: red;">Delete</a>
                  <!-- <router-link  :to="'cpost'">New Post</router-link> -->
                 

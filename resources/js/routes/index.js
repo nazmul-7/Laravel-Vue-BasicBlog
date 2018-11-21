@@ -10,7 +10,6 @@ import Posts from '../pages/posts.vue'
 import About from '../pages/about.vue'
 import PostById from '../pages/postbyid.vue'
 import Admin from '../admin/index.vue'
-import CreatePost from '../admin/create_post.vue'
 import EditPost from '../admin/edit_post.vue'
 
 export default new Router({
@@ -53,13 +52,7 @@ export default new Router({
     },
    
     {
-      path: '/cpost',
-      name: 'CreatePost',
-      component: CreatePost
-    },
-   
-    {
-      path: '/epost',
+      path: '/epost/:id',
       name: 'EditPost',
       component: EditPost
     },

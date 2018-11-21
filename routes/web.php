@@ -29,12 +29,12 @@ Route::post('getAdminDelete', [
     'uses' => 'PostController@getAdminDelete',
     
 ]);
-Route::any('{slug}', [
-    'uses' => 'HomeController@home',
-])->where('slug', '([A-z\d-\/_.]+)?');
+
+Route::get('{slug}', function () {
+    return view('index');
+})->where('slug', '([A-z\d-\/_.]+)?');
 
 
+//Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -22,17 +22,19 @@ export default {
 
 		}
 	},
-	async created() {
 
-        const res = await this.callApi('get', '/app/get/some-data-from-laravel')
-			if(res.status===200){
+	// async created() {
 
-				 this.$store.dispatch('users/updateUser',res.data);
+    //     const res = await this.callApi('get', '/app/get/some-data-from-laravel')
+	// 		if(res.status===200){
 
-			}
+	// 			 this.$store.dispatch('users/updateUser',res.data);
+
+	// 		}
 
        
-	},
+	// },
+
 	computed: {
 
 },

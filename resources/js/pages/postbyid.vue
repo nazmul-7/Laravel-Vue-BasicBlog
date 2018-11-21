@@ -8,6 +8,11 @@
     <div class="row">
         <div class="col-md-12">
             <p>{{ likes }} {{ (likes>1)? 'Likes' : 'Like' }} |<a v-on:click="like">Like</a></p>
+            <p style="font-weight: bold">Tag: 
+           <template v-for="(tag) in post['tags']" >
+                     - {{ tag['name'] }} -
+            </template>
+        </p>
         </div>
     </div>
     <div class="row">

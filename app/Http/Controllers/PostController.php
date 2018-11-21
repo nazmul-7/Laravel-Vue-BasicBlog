@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function getPosts()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'desc')->with('tags')->get();
         $tags = Tag::all();
         return response()->json(array(
             'code'      =>  200,
@@ -20,19 +20,19 @@ class PostController extends Controller
             'tags'=> $tags,
         ));
     }
-
     public function getPost(Request $request)
     {
         \Log::info('This is Id: '.$request->id);
         $id= $request->id;
 
-        $post = Post::where('id', $id)->with('likes')->first();
+        $post = Post::where('id', $id)->with('likes')->with(['tags' => function($query) { $query->select('tags.id')->get(); }  ])->first();
         $Tlikes = count($post->likes);
         $tags = Tag::all();
         return response()->json(array(
             'code'      =>  200,
             'post'   =>  $post,
             'Tlikes'=> $Tlikes,
+            'tags'=> $tags,
         ));
     }
 

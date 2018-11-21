@@ -20,6 +20,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "jshint": "^2.9.6",
         "laravel-vuex": "^0.2.6",
         "vue-route-laravel": "^1.0.4",
         "vue-router": "^3.0.1",
