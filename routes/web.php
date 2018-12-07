@@ -8,9 +8,9 @@ Route::get('/test', function () {
 Route::get('app/get/some-data-from-laravel', [
     'uses' => 'HomeController@data',
 ]);
-Route::post('/userAuthenticate', [
-    'uses' => 'HomeController@userAuthenticate',
-]);
+// Route::post('/userAuthenticate', [
+//     'uses' => 'HomeController@userAuthenticate',
+// ]);
 Route::post('/getPosts', [
     'uses' => 'PostController@getPosts',
 ]);
@@ -35,6 +35,6 @@ Route::get('{slug}', function () {
 })->where('slug', '([A-z\d-\/_.]+)?');
 
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');

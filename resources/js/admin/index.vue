@@ -1,18 +1,6 @@
 <template>
 	<div>
-        <div class="row" style="margin-top: 20px;" v-if="msg.length>0" >
-            <div class="col-md-12">
-                <p class="alert alert-info">{{ msg}}</p>
-            </div>
-        </div>
-        <!-- <div v-if="errors.length>0">
-            <div  v-if="!('content' in errors)" class="alert alert-danger alert-dismissible fade show" role="alert" >
-            <strong>Content Error</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-        </div> -->
+
 
 
     <div class="row" v-if="!postfield">
@@ -28,11 +16,18 @@
             <form v-on:submit.prevent="CreatePost">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text"  v-model="title" class="form-control" id="title" name="title">
+                    <input type="text"   v-model="title" class="form-control" v-bind:class=" (errors.title) ? ' is-invalid' : '' " id="title" name="title">
+                    <span v-if="errors.title" class="invalid-feedback" role="alert">
+                        <strong v-for="(error,index) in errors.title" :key="index">{{ error}}</strong>
+                    </span>
+                               
                 </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <input type="text" class="form-control"  v-model="content" id="content" name="content">
+                    <input type="text" class="form-control" v-bind:class=" (errors.content) ? ' is-invalid' : '' " v-model="content" id="content" name="content">
+                     <span v-if="errors.content" class="invalid-feedback" role="alert">
+                        <strong v-for="(error,index) in errors.content" :key="index">{{ error}}</strong>
+                    </span>
                 </div>
                 
                     <div class="checkbox" v-for="(tag,index) in tags" :key='index'>
